@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Search,
   MapPin,
@@ -12,6 +13,7 @@ import {
 
 export default function Hospitals() {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const hospitals = [
     {
@@ -253,9 +255,20 @@ export default function Hospitals() {
 
               </div>
 
-              <button className="mt-8 w-full bg-cyan-500 hover:bg-cyan-400 text-black py-4 rounded-xl font-bold transition">
-                Book Appointment
-              </button>
+             <button
+  onClick={() =>
+    navigate("/book", {
+      state: {
+        hospitalName: hospital.name,
+        waitingTime: hospital.waiting,
+        queue: hospital.queue,
+      },
+    })
+  }
+  className="mt-8 w-full bg-cyan-500 hover:bg-cyan-400 text-black py-4 rounded-xl font-bold transition"
+>
+  Book Appointment
+</button>
 
             </div>
           ))}
