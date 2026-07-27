@@ -16,10 +16,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-        >
+        <Link to="/" className="flex items-center gap-2">
           <Activity className="text-cyan-400" size={32} />
           <span className="text-2xl font-bold text-white">
             QueueCare
@@ -29,69 +26,45 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
 
-          <Link
-            to="/"
-            className="text-gray-300 hover:text-cyan-400 transition"
-          >
+          <Link to="/" className="text-gray-300 hover:text-cyan-400 transition">
             Home
           </Link>
 
-          <Link
-            to="/dashboard"
-            className="text-gray-300 hover:text-cyan-400 transition"
-          >
+          <Link to="/dashboard" className="text-gray-300 hover:text-cyan-400 transition">
             Dashboard
           </Link>
 
-          <Link
-            to="/hospitals"
-            className="text-gray-300 hover:text-cyan-400 transition"
-          >
+          <Link to="/hospitals" className="text-gray-300 hover:text-cyan-400 transition">
             Hospitals
           </Link>
 
-          <Link
-            to="/book"
-            className="text-gray-300 hover:text-cyan-400 transition"
-          >
+          {/* ✅ FIXED */}
+          <Link to="/book-appointment" className="text-gray-300 hover:text-cyan-400 transition">
             Book
           </Link>
 
-          <Link
-            to="/scan"
-            className="text-gray-300 hover:text-cyan-400 transition"
-          >
+          {/* ✅ FIXED */}
+          <Link to="/scan-qr" className="text-gray-300 hover:text-cyan-400 transition">
             Scan QR
           </Link>
 
-          <Link
-            to="/queue"
-            className="text-gray-300 hover:text-cyan-400 transition"
-          >
+          {/* ✅ FIXED */}
+          <Link to="/queue-status" className="text-gray-300 hover:text-cyan-400 transition">
             Queue
           </Link>
 
-          <Link
-            to="/login"
-            className="text-gray-300 hover:text-cyan-400 transition"
-          >
+          <Link to="/login" className="text-gray-300 hover:text-cyan-400 transition">
             Login
           </Link>
 
-          {/* Queue Notification */}
-          <Link to="/queue">
-            <Bell
-              className="text-gray-300 hover:text-cyan-400 cursor-pointer"
-              size={22}
-            />
+          {/* 🔔 FIXED */}
+          <Link to="/queue-status">
+            <Bell className="text-gray-300 hover:text-cyan-400 cursor-pointer" size={22} />
           </Link>
 
           {/* Profile */}
           <Link to="/profile">
-            <UserCircle
-              className="text-gray-300 hover:text-cyan-400 cursor-pointer"
-              size={30}
-            />
+            <UserCircle className="text-gray-300 hover:text-cyan-400 cursor-pointer" size={30} />
           </Link>
 
         </div>
@@ -110,67 +83,38 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-slate-900 px-6 py-5 space-y-4">
 
-          <Link
-            to="/"
-            className="block text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          <Link to="/" className="block text-white" onClick={() => setMenuOpen(false)}>
             Home
           </Link>
 
-          <Link
-            to="/dashboard"
-            className="block text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          <Link to="/dashboard" className="block text-white" onClick={() => setMenuOpen(false)}>
             Dashboard
           </Link>
 
-          <Link
-            to="/hospitals"
-            className="block text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          <Link to="/hospitals" className="block text-white" onClick={() => setMenuOpen(false)}>
             Hospitals
           </Link>
 
-          <Link
-            to="/book"
-            className="block text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          {/* ✅ FIXED */}
+          <Link to="/book-appointment" className="block text-white" onClick={() => setMenuOpen(false)}>
             Book Appointment
           </Link>
 
-          <Link
-            to="/scan"
-            className="block text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          {/* ✅ FIXED */}
+          <Link to="/scan-qr" className="block text-white" onClick={() => setMenuOpen(false)}>
             Scan QR
           </Link>
 
-          <Link
-            to="/queue"
-            className="block text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          {/* ✅ FIXED */}
+          <Link to="/queue-status" className="block text-white" onClick={() => setMenuOpen(false)}>
             Queue Status
           </Link>
 
-          <Link
-            to="/profile"
-            className="block text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          <Link to="/profile" className="block text-white" onClick={() => setMenuOpen(false)}>
             Profile
           </Link>
 
-          <Link
-            to="/login"
-            className="block text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          <Link to="/login" className="block text-white" onClick={() => setMenuOpen(false)}>
             Login
           </Link>
 
