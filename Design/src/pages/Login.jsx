@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -12,6 +12,8 @@ import {
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-950 flex items-center justify-center px-6">
@@ -108,6 +110,7 @@ export default function Login() {
 
           {/* Login Button */}
           <button
+            onClick={() => navigate("/dashboard")}
             className="mt-8 w-full rounded-xl bg-cyan-500 py-4 font-semibold text-black transition hover:bg-cyan-400"
           >
             Login

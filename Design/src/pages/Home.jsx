@@ -1,25 +1,31 @@
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Statistics from "../components/Statistics";
-import QuickActions from "../components/QuickActions";
-import LiveQueue from "../components/LiveQueue";
-import AIRecommendation from "../components/AIRecommendation";
-import Features from "../components/Features";
-import WorkingProcess from "../components/WorkingProcess";
-import Footer from "../components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-export default function Home() {
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import PatientDashboard from "./pages/PatientDashboard";
+import Hospitals from "./pages/Hospitals";
+import BookAppointment from "./pages/BookAppointment";
+import QueueStatus from "./pages/QueueStatus";
+import ScanQR from "./pages/ScanQR";
+import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
+
+export default function App() {
   return (
-    <div className="bg-slate-950">
-      <Navbar />
-      <Hero />
-      <Statistics />
-      <QuickActions />
-      <LiveQueue />
-      <AIRecommendation />
-      <Features />
-      <WorkingProcess />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<PatientDashboard />} />
+        <Route path="/hospitals" element={<Hospitals />} />
+        <Route path="/book" element={<BookAppointment />} />
+        <Route path="/queue" element={<QueueStatus />} />
+        <Route path="/scan" element={<ScanQR />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
