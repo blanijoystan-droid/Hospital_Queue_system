@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   CalendarCheck2,
   QrCode,
@@ -14,6 +15,7 @@ const actions = [
       "Schedule your appointment in advance and avoid waiting.",
     icon: CalendarCheck2,
     color: "from-cyan-500 to-blue-600",
+    link: "/book",
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ const actions = [
       "Check in instantly at the hospital and receive your token.",
     icon: QrCode,
     color: "from-purple-500 to-pink-600",
+    link: "/scan",
   },
   {
     id: 3,
@@ -30,6 +33,7 @@ const actions = [
       "Monitor your live token and estimated consultation time.",
     icon: Clock3,
     color: "from-green-500 to-emerald-600",
+    link: "/queue",
   },
   {
     id: 4,
@@ -38,6 +42,7 @@ const actions = [
       "Compare waiting times and choose the best hospital nearby.",
     icon: MapPinned,
     color: "from-orange-500 to-red-500",
+    link: "/hospitals",
   },
 ];
 
@@ -48,7 +53,6 @@ export default function QuickActions() {
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
-
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +78,6 @@ export default function QuickActions() {
         </motion.div>
 
         {/* Cards */}
-
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
 
           {actions.map((action, index) => {
@@ -100,13 +103,11 @@ export default function QuickActions() {
               >
 
                 {/* Glow */}
-
                 <div
                   className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br ${action.color}`}
                 />
 
                 {/* Content */}
-
                 <div className="relative z-10">
 
                   <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8">
@@ -126,11 +127,12 @@ export default function QuickActions() {
                     {action.description}
                   </p>
 
-                  <button
-                    className="mt-8 px-5 py-3 rounded-xl bg-cyan-500 text-black font-semibold hover:bg-white transition"
+                  <Link
+                    to={action.link}
+                    className="inline-block mt-8 px-5 py-3 rounded-xl bg-cyan-500 text-black font-semibold hover:bg-white transition"
                   >
                     Explore →
-                  </button>
+                  </Link>
 
                 </div>
 
