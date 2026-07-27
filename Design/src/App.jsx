@@ -20,9 +20,12 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<PatientDashboard />} />
         <Route path="/hospitals" element={<Hospitals />} />
-        <Route path="/bookAppointment" element={<BookAppointment />} />
-        <Route path="/queueStatus" element={<QueueStatus />} />
-        <Route path="/scanQR" element={<ScanQR />} />
+
+        {/* ✅ FIXED ROUTES */}
+        <Route path="/book-appointment" element={<BookAppointment />} />
+        <Route path="/queue-status" element={<QueueStatus />} />
+        <Route path="/scan-qr" element={<ScanQR />} />
+
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

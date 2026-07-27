@@ -17,19 +17,19 @@ const actions = [
   {
     title: "Book Appointment",
     icon: CalendarCheck,
-    link: "/book",
+    link: "/book-appointment", // ✅ FIXED
     color: "bg-cyan-500",
   },
   {
     title: "Queue Status",
     icon: Clock3,
-    link: "/queue",
+    link: "/queue-status", // ✅ FIXED
     color: "bg-green-500",
   },
   {
     title: "Scan QR",
     icon: QrCode,
-    link: "/scan",
+    link: "/scan-qr", // ✅ FIXED
     color: "bg-purple-500",
   },
   {
