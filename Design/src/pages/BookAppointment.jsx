@@ -1,8 +1,17 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Calendar, Clock, Hospital, Stethoscope, User } from "lucide-react";
 
+
+
 export default function BookAppointment() {
-  const [hospital, setHospital] = useState("");
+ const location = useLocation();
+const selectedHospital = location.state;
+
+const [hospital, setHospital] = useState(
+  selectedHospital?.hospitalName || ""
+);
+  
   const [department, setDepartment] = useState("");
   const [doctor, setDoctor] = useState("");
   const [date, setDate] = useState("");
@@ -36,6 +45,19 @@ export default function BookAppointment() {
         <p className="text-center text-gray-400 mt-3">
           Schedule your hospital visit without waiting in long queues.
         </p>
+        <div className="bg-slate-900 rounded-2xl p-6 mt-8 border border-cyan-500">
+  <h2 className="text-2xl font-bold text-cyan-400">
+    {selectedHospital?.hospitalName}
+  </h2>
+
+  <p className="text-gray-300 mt-2">
+    Waiting Time: {selectedHospital?.waitingTime}
+  </p>
+
+  <p className="text-gray-300">
+    Queue: {selectedHospital?.queue} Patients
+  </p>
+</div>
 
         <div className="grid lg:grid-cols-3 gap-8 mt-10">
 
@@ -44,24 +66,14 @@ export default function BookAppointment() {
           <div className="lg:col-span-2 bg-slate-900 rounded-3xl p-8 border border-slate-800">
 
             {/* Hospital */}
+<label className="font-semibold flex items-center gap-2">
+  <Hospital size={18} />
+  Hospital
+</label>
 
-            <label className="font-semibold flex items-center gap-2">
-              <Hospital size={18} />
-              Hospital
-            </label>
-
-            <select
-              value={hospital}
-              onChange={(e) => setHospital(e.target.value)}
-              className="w-full mt-2 mb-6 bg-slate-800 rounded-xl p-4 outline-none"
-            >
-              <option value="">Select Hospital</option>
-              <option>City Hospital</option>
-              <option>Apollo Hospital</option>
-              <option>Care Hospital</option>
-              <option>Government Hospital</option>
-            </select>
-
+<div className="mt-2 mb-6 bg-slate-800 rounded-xl p-4">
+  {hospital || "No hospital selected"}
+</div>
             {/* Department */}
 
             <label className="font-semibold flex items-center gap-2">
