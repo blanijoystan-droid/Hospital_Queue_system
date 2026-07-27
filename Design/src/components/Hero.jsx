@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { CalendarCheck, QrCode, Hospital, Clock } from "lucide-react";
 
 export default function Hero() {
@@ -37,15 +38,23 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-5 mt-10">
 
-            <button className="flex items-center gap-2 px-7 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition text-black font-semibold">
-              <CalendarCheck size={22}/>
+            {/* Book Appointment */}
+            <Link
+              to="/book"
+              className="flex items-center gap-2 px-7 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition text-black font-semibold"
+            >
+              <CalendarCheck size={22} />
               Book Appointment
-            </button>
+            </Link>
 
-            <button className="flex items-center gap-2 px-7 py-4 rounded-xl border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black transition">
-              <QrCode size={22}/>
+            {/* Scan QR */}
+            <Link
+              to="/scan"
+              className="flex items-center gap-2 px-7 py-4 rounded-xl border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black transition"
+            >
+              <QrCode size={22} />
               Scan QR
-            </button>
+            </Link>
 
           </div>
         </motion.div>
@@ -68,7 +77,7 @@ export default function Hero() {
 
               <div className="flex justify-between bg-slate-800 p-4 rounded-xl">
                 <div className="flex gap-3">
-                  <Hospital className="text-cyan-400"/>
+                  <Hospital className="text-cyan-400" />
                   <span className="text-white">
                     City Hospital
                   </span>
@@ -101,7 +110,7 @@ export default function Hero() {
 
               <div className="flex justify-between bg-slate-800 p-4 rounded-xl">
                 <div className="flex gap-2">
-                  <Clock className="text-cyan-400"/>
+                  <Clock className="text-cyan-400" />
                   <span className="text-gray-300">
                     Estimated Time
                   </span>

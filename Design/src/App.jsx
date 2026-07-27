@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import PatientDashboard from "./pages/PatientDashboard";
 import Hospitals from "./pages/Hospitals";
 import BookAppointment from "./pages/BookAppointment";
-import PatientDashboard from "./pages/PatientDashboard";
 import QueueStatus from "./pages/QueueStatus";
 import ScanQR from "./pages/ScanQR";
 import Profile from "./pages/Profile";
@@ -16,22 +16,14 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/login" element={<Login />} />
-
         <Route path="/register" element={<Register />} />
-
+        <Route path="/dashboard" element={<PatientDashboard />} />
         <Route path="/hospitals" element={<Hospitals />} />
-         <Route path="/dashboard" element={<PatientDashboard />} />
-
         <Route path="/bookAppointment" element={<BookAppointment />} />
-
         <Route path="/queueStatus" element={<QueueStatus />} />
-
         <Route path="/scanQR" element={<ScanQR />} />
-
         <Route path="/profile" element={<Profile />} />
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

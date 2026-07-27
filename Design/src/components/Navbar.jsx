@@ -16,20 +16,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
-
         <Link
           to="/"
           className="flex items-center gap-2"
         >
           <Activity className="text-cyan-400" size={32} />
-
           <span className="text-2xl font-bold text-white">
             QueueCare
           </span>
         </Link>
 
         {/* Desktop Menu */}
-
         <div className="hidden md:flex items-center gap-8">
 
           <Link
@@ -40,10 +37,31 @@ export default function Navbar() {
           </Link>
 
           <Link
+            to="/dashboard"
+            className="text-gray-300 hover:text-cyan-400 transition"
+          >
+            Dashboard
+          </Link>
+
+          <Link
+            to="/hospitals"
+            className="text-gray-300 hover:text-cyan-400 transition"
+          >
+            Hospitals
+          </Link>
+
+          <Link
             to="/book"
             className="text-gray-300 hover:text-cyan-400 transition"
           >
             Book
+          </Link>
+
+          <Link
+            to="/scan"
+            className="text-gray-300 hover:text-cyan-400 transition"
+          >
+            Scan QR
           </Link>
 
           <Link
@@ -54,39 +72,42 @@ export default function Navbar() {
           </Link>
 
           <Link
-            to="/scan"
+            to="/login"
             className="text-gray-300 hover:text-cyan-400 transition"
           >
-            Scan QR
+            Login
           </Link>
 
-          <Bell
-            className="text-gray-300 cursor-pointer hover:text-cyan-400"
-            size={22}
-          />
+          {/* Queue Notification */}
+          <Link to="/queue">
+            <Bell
+              className="text-gray-300 hover:text-cyan-400 cursor-pointer"
+              size={22}
+            />
+          </Link>
 
-          <UserCircle
-            className="text-gray-300 cursor-pointer hover:text-cyan-400"
-            size={30}
-          />
+          {/* Profile */}
+          <Link to="/profile">
+            <UserCircle
+              className="text-gray-300 hover:text-cyan-400 cursor-pointer"
+              size={30}
+            />
+          </Link>
 
         </div>
 
         {/* Mobile Button */}
-
         <button
           className="md:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={30}/> : <Menu size={30}/>}
+          {menuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
 
       </div>
 
       {/* Mobile Menu */}
-
       {menuOpen && (
-
         <div className="md:hidden bg-slate-900 px-6 py-5 space-y-4">
 
           <Link
@@ -98,11 +119,35 @@ export default function Navbar() {
           </Link>
 
           <Link
+            to="/dashboard"
+            className="block text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            Dashboard
+          </Link>
+
+          <Link
+            to="/hospitals"
+            className="block text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            Hospitals
+          </Link>
+
+          <Link
             to="/book"
             className="block text-white"
             onClick={() => setMenuOpen(false)}
           >
             Book Appointment
+          </Link>
+
+          <Link
+            to="/scan"
+            className="block text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            Scan QR
           </Link>
 
           <Link
@@ -114,15 +159,22 @@ export default function Navbar() {
           </Link>
 
           <Link
-            to="/scan"
+            to="/profile"
             className="block text-white"
             onClick={() => setMenuOpen(false)}
           >
-            Scan QR
+            Profile
+          </Link>
+
+          <Link
+            to="/login"
+            className="block text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            Login
           </Link>
 
         </div>
-
       )}
 
     </nav>
